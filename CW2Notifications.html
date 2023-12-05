@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Notifications </title>
+
+
+    <script src="ExternalFrameworks/alertify.min.js"></script>
+    <link rel="stylesheet" href="ExternalFrameworks/alertify.min.css" />
+    <link rel="stylesheet" href="ExternalFrameworks/default.min.css" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<style>
+
+.top-container {
+  background-color: rgb(167, 112, 189);
+  height: 10vh;
+}
+
+h1 {
+  width: 90%;
+  text-align: center;
+}
+
+body {
+  background-color: rgb(126, 207, 221);
+
+}
+hr {
+  border: none;
+  border-top: 3px solid black;
+}
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background-color: gray;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.sidebar-button {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #29a5c4;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.sidebar-button:hover {
+  background-color: #1a0fa7;
+}
+
+.right-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.right-button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    float: left;
+}
+
+.right-button-container button {
+  margin-left: 10px;
+}
+
+#notification-history {
+  width: 80%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.notification {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 20px;
+  border: 2px solid black;
+  background-color: #0fd7e67a;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-image: url("SupportingImages/DEWITlogoIcon.png");
+  background-size: cover;
+  margin-right: 10px;
+}
+
+.message {
+  font-weight: bold;
+  margin: 0;
+}
+
+.time {
+  margin: 0;
+}
+
+.delete-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.curved-window {
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  float: left;
+  background-color:rgb(177, 145, 184) ;
+}
+
+.left {
+  width: 42%;
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 450px;
+}
+
+.right {
+  width: 41%;
+  margin-left: 10px;
+  height: 450px;
+  overflow: auto;
+}
+
+/* .wind-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+} */
+
+textarea {
+  height: 200px;
+  width: calc(98%);
+}
+
+
+</style>
+
+  </head>
+
+  <body>
+    <!-- The sidebar -->
+<div class="sidebar">
+  <a href="CW2MainDashboard.html" class="sidebar-button">Dashboard</a>
+  <a href="CW2ProgressGoals.html" class="sidebar-button">Progress and Goals</a>
+  <a href="CW2Calendar.html" class="sidebar-button">Calendar and Planning</a>
+  <a href="CW2TopTips.html" class="sidebar-button">Tops tips for completing goals</a>
+  </div>
+  
+  <div class="right-button-container">
+    <button class="HelpB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Help.html'" > Help </button>
+    <button class="SettingsB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Settings.html'">Settings</button>
+    <button class="NotifictionsB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Notifications.html'">Notifications</button>
+  </div>  
+  
+  
+  <div class="top-container">
+    <img src="SupportingImages/DEWITlogo.png" height="100%" alt="Logo"> 
+  </div>
+
+<br>
+<button style="background-color: maroon; color: white; font-size: 20px; margin-left:10px;" onclick="window.history.back()">Go Back</button> <p></p>
+  <h1><strong>Notifications and Reminders</strong></h1>
+  <hr>
+
+  <div class="curved-window left">
+    <div style="margin-left: 10px;" >
+      <h3>*<strong > Set reminder time here: </strong></h3>
+      <input type="datetime-local" id="dateTimePicker" required>
+      <br><br>
+      <h3>*<strong> Set reminder contents here: </strong></h3>
+      <textarea id="message" placeholder="type here" rows="4" cols="50" required></textarea>
+      <br> <br>
+      <button class="button" style="background-color: #29a5c4; font-size: 20px; color: white" onclick="setNotification()"> Set Notification </button> 
+      <br> <br>
+    </div>
+  </div>
+
+  <div class="curved-window right">
+    <div style="margin-left: 10px;">
+      <h3><strong>Today</strong></h3>
+      <div id="notification-history"></div>
+      <br><br>
+      <h3><strong>Yesterday</strong></h3>
+      <p>You have no notifications from this selected date.</p>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    function setNotification() {
+      const dateTimePicker = document.getElementById("dateTimePicker");
+      const dateTimeValue = dateTimePicker.value;
+
+
+      const message = document.getElementById("message").value;
+      const target = new Date(dateTimeValue);
+      const now = new Date();
+      const timeToNotify = target - now;
+
+
+      setTimeout(function() {
+          alertify.message("Your reminder: " + message);
+          var snd = new Audio('SupportingImages/alarm.wav');
+          snd.play();
+
+          const history = document.getElementById("notification-history");
+          const newNotification = document.createElement("div");
+          newNotification.classList.add("notification");
+
+          const icon = document.createElement("div");
+          icon.classList.add("icon");
+          newNotification.appendChild(icon);
+
+          const content = document.createElement("div");
+          content.classList.add("content");
+          const messageElem = document.createElement("p");
+
+          messageElem.classList.add("message");
+          messageElem.textContent = `"${message}"`;
+          const timeElem = document.createElement("p");
+
+          timeElem.classList.add("time");
+
+          timeElem.textContent = target.toLocaleString();
+          content.appendChild(messageElem);
+          content.appendChild(timeElem);
+          newNotification.appendChild(content);
+          
+
+          const deleteBtn = document.createElement("button");
+          deleteBtn.textContent = "Delete";
+          deleteBtn.classList.add("delete-btn");
+          deleteBtn.addEventListener("click", function() {
+            history.removeChild(newNotification);
+          });
+          newNotification.appendChild(deleteBtn);
+
+          history.appendChild(newNotification);
+        }, timeToNotify);
+
+
+      alertify.success('Notification set for ' + target.toLocaleString());
+      dateTimePicker.value = '';
+      document.getElementById('message').value = '';
+    }
+    </script>
+
+  </body>
+</html>
+
+
+

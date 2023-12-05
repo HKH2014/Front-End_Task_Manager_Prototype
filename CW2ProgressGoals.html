@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Help</title>
+    <link rel="stylesheet" href="ExternalFrameworks/alertify.min.css" />
+    <link rel="stylesheet" href="ExternalFrameworks/default.min.css" />
+    <script src="ExternalFrameworks/alertify.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<style>
+
+body {
+  background-color: rgb(126, 207, 221);
+}
+
+h1 {
+  width: 90%;
+  text-align: center;
+}
+
+
+.top-container {
+  background-color: rgb(167, 112, 189);
+  height: 10vh;
+
+}
+
+hr {
+  border: none;
+  border-top: 3px solid black;
+}
+
+h2 {
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background-color: gray;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.sidebar-button {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #29a5c4;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.sidebar-button:hover {
+  background-color: #1a0fa7;
+}
+
+.right-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.right-button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    float: left;
+    }
+
+.right-button-container button {
+    margin-left: 10px;
+}
+
+#button-container {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.scrollable-window {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+
+.boxed-window {
+  height: 100%;
+  overflow: hidden;
+  float: left;
+}
+
+.left {
+  width: 40%;
+  margin-right: 2px;
+  margin-left: 2px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.right {
+  width: 47%;
+  bottom:0;
+  margin-left: 2px;
+  height: auto;
+}
+
+.up {
+  width: 90%;
+  margin-right: 5px;
+  margin-left: 15px;
+  height: 330px;
+  margin-bottom: 20px;
+  background-color: rgb(178, 168, 216);
+  border-radius: 20px;
+  color: white;
+}
+
+.down {
+  width: 100%;
+  bottom:0;
+  margin-left: 5px;
+  height: auto;
+  clear: left;
+  background-color: rgb(116, 84, 231);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.sidebar-button-selected {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #8f39e0;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.sidebar-button-selected:hover {
+    background-color: #3e0266;
+}
+
+.tab {
+    background-color: #f1f1f1;
+    overflow: hidden;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.tab button.active {
+    background-color: #aa9ee4;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+
+
+textarea {
+  height: 100px;
+  width: calc(98%);
+}
+
+.speech-bubble {
+  position: relative;
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.speech-bubble::before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent #F0F0F0 transparent transparent;
+  top: 50%;
+  left: -15px;
+  transform: translateY(-50%);
+}
+
+.speech-bubble-text {
+  display: inline-block;
+}
+
+.speech-bubble-icon {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.speech-bubble-icon img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.scrollable-window {
+      width: 100%;
+      height: 200px;
+      overflow: auto;
+    }
+
+.scrollable-window2 {
+    width: 100%;
+    height: 400px;
+    overflow: auto;
+}
+
+.rectangle {
+    width: 98%;
+    height: 100px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    background-color: lightblue;
+    transition: background-color 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+.rectangle::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.rectangle.yellow::before {
+    background-color: rgb(214, 214, 44);
+}
+.rectangle.brown::before {
+    background-color: rgb(119, 39, 39);
+}
+.rectangle.platinum::before {
+    background-color: rgb(128, 125, 125);
+}
+.rectangle.silver::before {
+    background-color: rgb(231, 216, 216);
+}
+.rectangle:hover {
+    background-color: darkblue;
+}
+.rectangle:hover {
+    background-color: rgb(50, 50, 228);
+}
+
+.bgcontainer {
+    background-color: rgb(202, 138, 202);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+</style>
+
+  </head>
+
+  <body>
+    <!-- The sidebar -->
+<div class="sidebar">
+  <a href="CW2MainDashboard.html" class="sidebar-button">Dashboard</a>
+  <a href="CW2ProgressGoals.html" class="sidebar-button-selected">Progress and Goals</a>
+  <a href="CW2Calendar.html" class="sidebar-button">Calendar and Planning</a>
+  <a href="CW2TopTips.html" class="sidebar-button">Tops tips for completing goals</a>
+  </div>
+  
+  <div class="right-button-container">
+    <button class="HelpB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Help.html'" > Help </button>
+    <button class="SettingsB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Settings.html'">Settings</button>
+    <button class="NotifictionsB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Notifications.html'">Notifications</button>
+  </div>  
+  
+  
+  <div class="top-container">
+    <img src="SupportingImages/DEWITlogo.png" height="100%" alt="Logo"> 
+  </div>
+
+<br>
+
+  <h1><strong>Progress and Goals</strong></h1>
+  <hr>
+
+
+  
+    <div class="boxed-window left" style:="position: fixed;">
+        <h3><strong>Well done, User, you've met your daily goal</strong></h3><br>
+        <div class="boxed-window up">
+            <br><br>
+            <canvas id="mypieChart" style="width:100%;max-width:600px"></canvas>
+            <br><br>
+        </div>
+
+    </div>  
+
+    <div class="boxed-window right">
+        <div class="tab">
+            <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'tab1')"><u>Set New Goal</u></button>
+            <button class="tablinks" onclick="openTab(event, 'tab2')"><u>Weekly Progress</u></button>
+            <button class="tablinks" onclick="openTab(event, 'tab3')"><u>Comments</u></button>
+            <button class="tablinks" onclick="openTab(event, 'tab4')"><u>Goals History</u></button>
+          </div>
+
+
+
+        <div id="tab1" class="tabcontent" style="width: 90%;">
+            <div class="bgcontainer">
+
+                <form id="goal-form" onsubmit="submitForm(event)">
+                    <label for="percentage" required> </label>*<strong>Percentage to complete:</strong></label>
+                    <input type="text" id="percentage" name="percentage"><br><br>
+            
+                    <label for="dropdown" required>*<strong>Specific task assosiation: </strong></label>
+                    <select id="dropdown" name="dropdown">
+                        <option value="item0">UNSURE</option>
+                        <option value="item1">Repair Ceiling</option>
+                        <option value="item2">Buy Car</option>
+                        <option value="item3">Make Butter Chicken</option>
+                        <option value="item4">Jump into a volcano</option>
+                    </select><br><br>
+            
+                    <label for="datepicker" required>*<strong>Goal Expiry date: </strong></label>
+                    <input type="date" id="datepicker" name="datepicker"><br><br>
+            
+                    <label>*<strong>Award Level: </strong></label><br>
+                    <input type="radio" id="option1" name="options" value="option1">
+                    <label for="option1">Bronze</label><br>
+                        <input type="radio" id="option2" name="options" value="option2">
+                    <label for="option2">Silver</label><br>
+                        <input type="radio" id="option3" name="options" value="option3">
+                    <label for="option3">Gold</label><br>
+                        <input type="radio" id="option4" name="options" value="option4">
+                    <label for="option4">Platinum</label><br><br>
+            
+                    <input type="submit"  style="background-color: #29a5c4; color: white" value="Submit">
+                </form>    
+            </div>    
+        </div>
+
+
+
+
+
+        <div id="tab2" class="tabcontent" style="width: 90%;">
+            <br>
+            <canvas id="mylineChart" style="width:100%;max-width:600px"></canvas>  
+            <div style="background-color: rgb(0, 0, 0); height:50px; display: flex; align-items: center; justify-content: center;">
+                <img src="SupportingImages/LeftArrow.png" style="height: 80%; margin-left: 20px;" onclick="alertify.error('No Available data for previous weeks!'); var snd = new Audio('SupportingImages/alarm.wav');
+                snd.play();">
+                <h1 style="color: white; margin-left: 20px;">Week 5</h1>
+                <img src="SupportingImages/RightArrow.png" style="height: 80%; margin-left: 20px;" onclick="alertify.error('No Available data for future weeks!'); var snd = new Audio('SupportingImages/alarm.wav');
+                snd.play();">
+                <br>
+              </div>   
+         </div>
+
+        <div id="tab3" class="tabcontent" style="width: 90%;">
+            <br>
+            <button id="show-comment" style="background-color: #29a5c4; color: white;">+ New Comment</button> <br>
+            <div id="comment-box" style="display: none;">
+                <br>
+              <textarea id="comment-text" placeholder="Enter new comment here"></textarea>
+              <div>
+                <button id="display-comment" style="background-color: green;" >Display Comment</button>
+                <button id="cancel-comment" style="background-color: rgb(87, 9, 9); color:white;">Cancel</button>
+              </div>
+            </div>
+            <br>
+            <div class="scrollable-window">
+                <h5><strong>Comment History: </strong> </h5> 
+                <div id="comment-container"></div>
+            </div>
+        </div>
+
+        <div id="tab4" class="tabcontent" style="width: 90%;">
+            <div class="scrollable-window2">
+
+                <div class="rectangle yellow" onclick="showAlert1()">
+                    <h3>Gold Achievement Earned!</h3>
+                    <p>23/04/23</p>
+                </div>
+                <div class="rectangle brown" onclick="showAlert2()">
+                    <h3>Bronze Achievement Earned!</h3>
+                    <p>21/04/23</p>
+                </div>
+                <div class="rectangle silver" onclick="showAlert3()">
+                    <h3>Silver Achievement Earned!</h3>
+                    <p>17/04/23</p>
+                </div>
+                <div class="rectangle silver" onclick="showAlert4()">
+                    <h3>Silver Achievement Earned!</h3>
+                    <p>30/03/23</p>
+                </div>
+                <div class="rectangle platinum" onclick="showAlert5()">
+                    <h3>Platinum Achievement Earned!</h3>
+                    <p>28/03/23</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<script>
+    function submitForm(event) {
+        // Prevent the form from submitting normally
+        event.preventDefault();
+
+        // Show the success message using Alertify.js
+        alertify.alert("Goal created", function(){
+        });
+        document.getElementById("percentage").value = "";
+			    document.getElementById("dropdown").selectedIndex = 0;
+			    document.getElementById("datepicker").value = "";
+			    document.getElementById("option1").checked = false;
+			    document.getElementById("option2").checked = false;
+			    document.getElementById("option3").checked = false;
+			    document.getElementById("option4").checked = false;
+    }
+</script>
+
+
+<script>
+    function showAlert1() {
+        alertify.alert("Hibah Hussain got 70% or more tasks completed<br><strong>Special Task Mention:</strong> Revising for exam", function(){
+        });
+    }
+
+    function showAlert2() {
+        alertify.alert("Riaz Singh got 40% or more tasks completed<br><strong>Special Task Mention:</strong> Build Lego Tower", function(){
+        });
+    }
+
+    function showAlert3() {
+        alertify.alert("Rebecca Pierce got 55% or more tasks completed<br><strong>Special Task Mention:</strong> Polishing stethescope", function(){
+        });
+    }
+
+    function showAlert4() {
+        alertify.alert("Cassandra vanHeibt got 55% or more tasks completed<br><strong>Special Task Mention:</strong> Going to Therapy", function(){
+        });
+    }
+
+    function showAlert5() {
+        alertify.alert("Kathryn Rhyna got 90% or more tasks completed<br><strong>Special Task Mention:</strong> Buy VOLUNTEER costumes", function(){
+        });
+    }
+</script>
+
+<script>
+
+const showCommentButton = document.getElementById('show-comment');
+const commentBox = document.getElementById('comment-box');
+const commentText = document.getElementById('comment-text');
+const displayCommentButton = document.getElementById('display-comment');
+const cancelCommentButton = document.getElementById('cancel-comment');
+const commentContainer = document.getElementById('comment-container');
+
+showCommentButton.addEventListener('click', () => {
+  commentBox.style.display = 'block';
+});
+
+displayCommentButton.addEventListener('click', () => {
+  const comment = commentText.value;
+  if (comment) {
+    // Create a new speech bubble element
+    const speechBubble = document.createElement('div');
+    speechBubble.classList.add('speech-bubble');
+    speechBubble.innerHTML = `
+      <div class="speech-bubble-icon"><img src="SupportingImages/ProfilePic.jpg" alt="icon"></div>
+      <div class="speech-bubble-text">${comment}</div>
+    `;
+    commentContainer.appendChild(speechBubble);
+    
+    commentText.value = '';
+    commentBox.style.display = 'none';
+  }
+    alertify.success('Comment Added!');
+    var snd = new Audio('SupportingImages/alarm.wav');
+    snd.play();
+});
+
+cancelCommentButton.addEventListener('click', () => {
+  commentBox.style.display = 'none';
+  commentText.value = '';
+});
+
+
+
+</script>
+
+<script>
+var xValues = ["Incomplete", "Marked as Complete", "In Progress"];
+var yValues = [10, 70, 20];
+var barColors = [
+    "#00aba9",
+    "#2b5797",
+    "#e8c3b9",
+];
+
+new Chart("mypieChart", {
+    type: "pie",
+    data: {
+    labels: xValues,
+    datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+    }]
+    },
+
+});
+</script>
+
+
+<script>
+document.getElementById("defaultOpen").click();
+
+function openTab(evt, tabName) {
+    // Declare variables
+    var i, tabcontent, tablinks;
+
+    // Hide all tab content
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+    }
+
+    // Remove the active class from all tab links
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab content and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
+<script>
+    const graphxValues = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+    const graphyValues = [10,28,89,92,54,16,33];
+    
+    new Chart("mylineChart", {
+      type: "line",
+      data: {
+        labels: graphxValues,
+        datasets: [{
+          fill: false,
+          lineTension: 0,
+          backgroundColor: "rgba(0,0,255,1.0)",
+          borderColor: "black",
+          data: graphyValues
+        }]
+      },
+      options: {
+        legend: {display: false},
+        scales: {
+          yAxes: [{ticks: {min: 0, max:100}}],
+        }
+      }
+    });
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<title>Update task</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<script src="ExternalFrameworks/alertify.min.js"></script>
+<link rel="stylesheet" href="ExternalFrameworks/alertify.min.css" />
+<link rel="stylesheet" href="ExternalFrameworks/default.min.css" />
+
+
+<head></head>
+
+<style>
+
+body {
+  background-color: rgb(126, 207, 221);
+}
+
+h1 {
+  width: 90%;
+  text-align: center;
+}
+
+
+.top-container {
+  background-color: rgb(167, 112, 189);
+  height: 10vh;
+
+}
+
+hr {
+  border: none;
+  border-top: 3px solid black;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background-color: gray;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.sidebar-button {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #29a5c4;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.sidebar-button:hover {
+  background-color: #1a0fa7;
+}
+
+.sidebar-button-selected {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #8f39e0;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.sidebar-button-selected:hover {
+    background-color: #3e0266;
+}
+
+
+.right-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.right-button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    float: left;
+    }
+
+  .right-button-container button {
+    margin-left: 10px;
+  }
+
+  .container {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.curved-window {
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  float: left;
+}
+
+.left {
+  width: 42%;
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 450px;
+  background-color:rgb(177, 145, 184) ;
+}
+
+.right {
+  width: 41%;
+  margin-left: 10px;
+  height: 450px;
+  background-image: url('SupportingImages/PMUpdateScreen.jpg') alt="promoimg2";
+  background-size: cover;
+  background-position: center center;
+}
+
+textarea {
+  width: 500px;
+  height: 100px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.allign-container {
+  width: 500px;
+  clear: both;
+  margin-left: 25px;
+}
+
+.allign-container input {
+  width: 100%;
+  clear: both;
+}
+
+.right img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+</style>
+
+ 
+<body>
+
+    <!-- The sidebar -->
+    <div class="sidebar">
+    <a href="CW2MainDashboard.html" class="sidebar-button-selected">Dashboard</a>
+    <a href="CW2ProgressGoals.html" class="sidebar-button">Progress and Goals</a>
+    <a href="CW2Calendar.html" class="sidebar-button">Calendar and Planning</a>
+    <a href="CW2TopTips.html" class="sidebar-button">Tops tips for completing goals</a>
+    </div>
+    
+    <div class="right-button-container">
+      <button class="HelpB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Help.html'" > Help </button>
+      <button class="SettingsB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Settings.html'">Settings</button>
+      <button class="NotifictionsB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Notifications.html'">Notifications</button>
+      </div>  
+    <div class="top-container">
+      <img src="SupportingImages/DEWITlogo.png" height="100%" alt="Logo">
+    </div><br>
+    <button style="background-color: maroon; color: white; font-size: 20px; margin-left:10px;" onclick="window.history.back()">Go Back</button> <p></p>
+    
+    <h1><strong>Update Task</strong></h1>
+    <hr>
+
+    <div class="curved-window left">
+        <div style="margin-left: 10px;" >
+            <form>
+                <div>
+                  <br>
+                  <label for="title"><strong>Title: </strong></label>
+                  <input type="text" id="title" name="title" placeholder="enter here">
+                </div><br>
+                <div>
+                  <label for="deadline"><strong>Deadline:</strong></label>
+                  <input type="date" id="deadline" name="deadline" placeholder="enter here"> </div>
+                <div><br>
+                  <label for="description"><strong>Description:</strong></label>
+                  <textarea id="description" name="description" placeholder="enter here"></textarea>
+                </div><br>
+                <div>
+                  <label for="author"><strong>Author:</strong></label>
+                  <input type="text" id="author" name="author" placeholder="enter here"><br>
+                </div><br>
+                <div>
+                    <label for="priority"><strong>Priority of Task:</strong></label>
+                    <input type="range" id="priority" name="priority" min="1" max="5" required>
+                    <p id="selected-priority"></p> <br>
+                </div>
+                <button type="submit" style="background-color: #29a5c4; font-size: 20px; color: white" onclick="confirm()">Update Task </button><br>
+                <br>
+              </form>
+        </div>
+      </div>
+    
+      <div class="curved-window right">
+        <div style="margin-left: 10px;">
+            <img src="SupportingImages/PMUpdateScreen.jpg" alt="promoting2">
+        </div>
+      </div>
+    
+
+      <script>
+
+        function confirm() {
+            alertify.alert("Task has been updated!",  function(){window.location.href = 'CW2MainDashboard.html';});
+        }
+        var ratingInput = document.getElementById("priority");
+        var selectedRating = document.getElementById("selected-priority");
+      
+        ratingInput.addEventListener("input", function() {
+          selectedRating.textContent = "Selected rating of priority: " + ratingInput.value;
+        });
+      
+        const titleInput = document.getElementById('title');
+        const deadlineInput = document.getElementById('deadline');
+        const descriptionInput = document.getElementById('description');
+        const authorInput = document.getElementById('author');
+        const priorityInput = document.getElementById('priority');
+      
+      
+        const title = new URLSearchParams(window.location.search).get('title');
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        const task = tasks.find(task => task.title === title);
+      
+        if (task) {
+            task.title = titleInput.value;
+            task.description = descInput.value;
+            task.deadline = deadlineInput.value;
+            task.author = authorInput.value;
+            task.priority = priorityInput.value;
+      
+        }
+      
+        const updateTask = (e) => {
+          e.preventDefault();
+      
+        const updatedTasks = tasks.map(task => {
+          if (task.title === title) {
+            return {
+              ...task,
+              title: titleInput.value,
+              deadline: deadlineInput.value,
+              description: descriptionInput.value,
+              author: authorInput.value,
+              priority: priorityInput.value
+            }
+          }
+          return task;
+        });
+      
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+          
+        }
+      
+        document.querySelector('form').addEventListener('submit', updateTask);
+      
+        
+      </script>
+      
+                          
+      
+      </body>
+      
+      </html>

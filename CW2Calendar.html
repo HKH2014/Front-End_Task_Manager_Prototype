@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calendar</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <link rel="stylesheet" href="ExternalFrameworks/evo-calendar.css" />
+  <link rel="stylesheet" href="ExternalFrameworks/evo-calendar.min.css">
+  <link rel="stylesheet" href="ExternalFrameworks/evo-calendar.royal-navy.min.css">
+
+  <link rel="stylesheet" href="ExternalFrameworks/frappe-gantt.css">
+  <script src="ExternalFrameworks/frappe-gantt.js"></script>
+
+  <script src="ExternalFrameworks/alertify.min.js"></script>
+  <link rel="stylesheet" href="ExternalFrameworks/alertify.min.css" />
+  <link rel="stylesheet" href="ExternalFrameworks/default.min.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <script src="ExternalFrameworks/evo-calendar.min.js"></script>
+  <script src="ExternalFrameworks/evo-calendar.js"></script>
+  
+  <style>
+.layout {
+  width: 83%;
+  height: 100%;
+}
+
+body {
+  background-color: rgb(126, 207, 221);
+}
+
+h1 {
+  width: 90%;
+  text-align: center;
+}
+
+
+.top-container {
+  background-color: rgb(167, 112, 189);
+  height: 10vh;
+
+}
+
+hr {
+  border: none;
+  border-top: 3px solid black;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background-color: gray;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.sidebar-button {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #29a5c4;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.sidebar-button:hover {
+  background-color: #1a0fa7;
+}
+
+.sidebar-button-selected {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #8f39e0;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.sidebar-button-selected:hover {
+    background-color: #3e0266;
+}
+
+
+.right-button {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.right-button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    float: left;
+    }
+
+.right-button-container button {
+  margin-left: 10px;
+}
+
+.tab {
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button.active {
+  background-color: #aa9ee4;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+
+.container {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+height: 500px;
+}
+
+.gantt-target {
+  width: 85%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-container{
+  width: auto;
+  height: auto;
+  background-color:#aa9ee4;
+  border-radius: 20px;
+}
+
+
+  </style>
+
+</head>
+
+<body>
+<!-- The sidebar -->
+<div class="sidebar">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <a href="CW2MainDashboard.html" class="sidebar-button">Dashboard</a>
+    <a href="CW2ProgressGoals.html" class="sidebar-button">Progress and Goals</a>
+
+    <a href="CW2Calendar.html" class="sidebar-button-selected">Calendar and Planning</a>
+    <a href="CW2TopTips.html" class="sidebar-button">Tops tips for completing goals</a>
+    </div>
+    
+    <div class="right-button-container">
+      <button class="HelpB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Help.html'" > Help </button>
+      <button class="SettingsB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Settings.html'">Settings</button>
+      <button class="NotifictionsB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Notifications.html'">Notifications</button>
+    </div>  
+
+
+    <div class="top-container">
+      <img src="SupportingImages/DEWITlogo.png" height="100%" alt="Logo">
+    </div>
+    
+    <br>
+    <h1><strong>Calendar</strong></h1>
+    <hr>
+
+
+    <div class="tab">
+      <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'tab3')"><u>Monthly View</u></button>
+      <button class="tablinks" onclick="openTab(event, 'tab4')"><u>Weekly View</u></button>
+    </div>
+
+
+	<div id="tab3" class="tabcontent">
+        <br>
+		<div class="layout">
+      <div id="calendar"></div>
+    </div>
+	</div>
+
+
+
+	<div id="tab4" class="tabcontent">
+    <div class="container">
+      <div class="gantt-target">
+        <div style="background-color: rgb(0, 0, 0); height: 10%; width: 100%; display: flex; align-items: center; justify-content: center;">
+          <img src="SupportingImages/LeftArrow.png" style="height: 80%; margin-left: 20px;" onclick="alertify.error('No scheduled tasks in previous weeks!'); var snd = new Audio('SupportingImages/alarm.wav');
+          snd.play();">
+          <h1 style="color: white; margin-left: 20px;">Quarter 3 2023: July - September</h1>
+          <img src="SupportingImages/RightArrow.png" style="height: 80%; margin-left: 20px;" onclick="alertify.error('No scheduled tasks in future weeks!'); var snd = new Audio('SupportingImages/alarm.wav');
+          snd.play();">
+          <br>
+        </div>
+        
+        </div>
+        
+        
+      </div>
+    </div>
+  
+	</div>
+
+  <script>
+    // gantt_tasks to put in the gantt chart
+    var gantt_tasks = [
+      {
+        start: '2023-07-01',
+        end: '2023-08-08',
+        name: 'Buy Car',
+        id: "Task 0",
+        progress: 91,
+        author: "Rayyan Hussain",
+      },
+      {
+        start: '2023-07-03',
+        end: '2023-08-06',
+        name: 'Make Butter Chicken',
+        id: "Task 1",
+        progress: 55,
+        author: "Ambar Hussain",
+      },
+      {
+        start: '2023-07-04',
+        end: '2023-08-08',
+        name: 'Complete Software Architecture Assignment',
+        id: "Task 2",
+        progress: 40,
+        author: "Hibah Hussain",
+      },
+      {
+        start: '2023-07-08',
+        end: '2023-08-09',
+        name: 'Pick up dry cleaning',
+        id: "Task 3",
+        progress: 20,
+        author: "Isa Hussain",
+      },
+      {
+        start: '2023-07-08',
+        end: '2023-08-10',
+        name: 'Repair Ceilinng',
+        id: "Task 4",
+        progress: 50,
+        author: "Abid Hussain",
+      }
+    ];
+    
+    var gantt_chart = new Gantt(".gantt-target", gantt_tasks, {
+      header_height: 50,
+      column_width: 30,
+      step: 24,
+      view_modes: [
+        'Quarter Day',
+        'Half Day',
+        'Day',
+        'Week',
+        'Month',
+        'Year'
+      ],
+      bar_height: 20,
+      bar_corner_radius: 3,
+      arrow_curve: 5,
+      padding: 18,
+      view_mode: 'Week', 
+      date_format: 'YYYY-MM-DD',
+      popup_trigger: 'click',
+      custom_popup_html: function(task) {
+        return "<div><b>Author:</b> " + task.author + " <br> <b>Task Deadline: <b>" + task.end +"</div>";
+      },
+      language: 'en',
+      on_click: function (task) {
+        console.log(task);
+      },
+      on_date_change: function(task, start, end) {
+        console.log(task, start, end);
+      },
+    
+      on_author_change: function(task, author) {
+        console.log(task, author);
+      },
+      on_progress_change: function(task, progress) {
+        console.log(task, progress);
+      },
+      on_view_change: function(mode) {
+        console.log(mode);
+      }
+    });
+    
+
+  
+  </script>  
+
+
+
+<script>
+    document.getElementById("defaultOpen").click();
+      
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+
+
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+$(document).ready(function() {
+  $('#calendar').evoCalendar({
+    calendarEvents: tasks.map((task, index) => {
+      return {
+        name: task.title,
+        date: new Date(task.deadline),
+        description: task.description,
+        author: task.author
+      }
+    })
+  });
+});
+</script>
+
+</body>
+</html>
+

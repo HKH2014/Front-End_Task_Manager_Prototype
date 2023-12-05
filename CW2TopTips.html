@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Help</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+
+body {
+  background-color: rgb(126, 207, 221);
+}
+
+h1 {
+  width: 90%;
+  text-align: center;
+}
+
+
+.top-container {
+  background-color: rgb(167, 112, 189);
+  height: 10vh;
+
+}
+
+hr {
+  border: none;
+  border-top: 3px solid black;
+}
+
+h2 {
+  background-color: rgb(146, 95, 167);
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background-color: gray;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.sidebar-button {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #29a5c4;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.sidebar-button:hover {
+  background-color: #1a0fa7;
+}
+
+.right-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.right-button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    float: left;
+    }
+
+.right-button-container button {
+    margin-left: 10px;
+}
+
+#button-container {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.scrollable-window {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+
+.boxed-window {
+  height: 100%;
+  overflow: hidden;
+  float: left;
+}
+
+.left {
+  width: 43%;
+  margin-right: 2px;
+  margin-left: 2px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.right {
+  width: 43%;
+  bottom:0;
+  margin-left: 2px;
+  height: auto;
+}
+
+.up {
+  width: 100%;
+  margin-right: 5px;
+  margin-left: 5px;
+  height: auto;
+  margin-bottom: 20px;
+  background-color: rgb(116, 84, 231);
+  border-radius: 20px;
+  color: white;
+}
+
+.down {
+  width: 100%;
+  bottom:0;
+  margin-left: 5px;
+  height: auto;
+  clear: left;
+  background-color: rgb(116, 84, 231);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.sidebar-button-selected {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #8f39e0;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.sidebar-button-selected:hover {
+    background-color: #3e0266;
+}
+
+
+
+
+</style>
+
+  </head>
+
+  <body>
+    <!-- The sidebar -->
+<div class="sidebar">
+  <a href="CW2MainDashboard.html" class="sidebar-button">Dashboard</a>
+  <a href="CW2ProgressGoals.html" class="sidebar-button">Progress and Goals</a>
+  <a href="CW2Calendar.html" class="sidebar-button">Calendar and Planning</a>
+  <a href="CW2TopTips.html" class="sidebar-button-selected">Tops tips for completing goals</a>
+  </div>
+  
+  <div class="right-button-container">
+    <button class="HelpB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Help.html'" > Help </button>
+    <button class="SettingsB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Settings.html'">Settings</button>
+    <button class="NotifictionsB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Notifications.html'">Notifications</button>
+  </div>  
+  
+  
+  <div class="top-container">
+    <img src="SupportingImages/DEWITlogo.png" height="100%" alt="Logo"> 
+  </div>
+
+<br>
+
+  <h1><strong>Top Tips for Completing Tasks</strong></h1>
+  <hr>
+
+  <img src="SupportingImages/TipsBanner.png" style="width: calc(100% - 200px);" alt="banner"> <br>
+
+  <div class="boxed-window left">
+    <br>
+    <div style="margin-left: 2px;">
+      <div class="boxed-window up">
+        <p>A great way to get started is a skill called ‘chunking,’ which means breaking things down into small actionable steps. </p>
+      </div>
+      <div class="boxed-window down">
+        <p>Narrow your list down to just three items as sometimes huge to-do lists can be overwhelming — not to mention impossible to get done in one day.</p>
+      </div>
+      <div class="boxed-window down">
+        <p> Have an alarm to stop yourself from scrolling Instagram or TikTok, which can eat into the time you would have to complete tasks and do chores.</p>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <br>
+  <div class="boxed-window right">
+    <div style="margin-left: 2px;">
+      <div class="boxed-window up">
+        <p>Redefine success of a task to make it more manageable or easier. An example is to tell yourself that washing half of the dishes today will count as a win.</p>
+      </div>
+      <div class="boxed-window down">
+        <p>Breaking the task down into small do-able parts that get paced out can help break down that wall of total resistance.</p>
+      </div>
+      <div class="boxed-window down">
+        <p>Transition to the task by doing another activity first - using another activity to help you transition to the task you want to do makes the task easier to get into.</p>
+      </div>
+
+    </div>
+  </div>
+
+
+  
+</body>
+</html>
+
+

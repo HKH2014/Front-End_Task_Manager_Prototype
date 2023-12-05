@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <title>Sign Up</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+
+<script src="ExternalFrameworks/alertify.min.js"></script>
+<link rel="stylesheet" href="ExternalFrameworks/alertify.min.css" />
+<link rel="stylesheet" href="ExternalFrameworks/default.min.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<head>
+<style>
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background-color: gray;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.help-button {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #29a5c4;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.help-button:hover {
+  background-color: #1a0fa7;
+}
+
+form {
+  margin: 0;
+  padding: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+
+.curved-window {
+height: 100%;
+overflow: hidden;
+float: left;
+background-color:rgb(255, 255, 255) ;
+}
+
+.left {
+  width: 42%;
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 100%;
+}
+
+.right {
+  width: 41%;
+  margin-left: 10px;
+  height: 450px;
+  overflow: auto;
+}
+
+.top-container {
+  background-color: rgb(116, 163, 233);
+  text-align: center;
+}
+  
+
+
+</style>
+
+
+</head>
+<body>
+
+      <!-- The sidebar -->
+  <div class="sidebar">
+    <a href="CW2HelpNoLogin.html" class="help-button">Help</a>
+    <a href="index.html" class="help-button">Homepage</a>
+    </div>
+
+    <div class="curved-window left">
+      <br>
+      <div class="top-container">
+        <h1><strong> Sign Up Here</strong></h1>
+        <p><i>Please fill in the following field(s) below. Click 'Continue' to proceed to your dashboard.</i></p>
+      </div>
+        <form>
+          <label for="first-name">* First Name(s):</label>
+          <input type="text" id="first-name" name="first-name" required><br>
+
+          <label for="last-name">* Last Name(s):</label>
+          <input type="text" id="last-name" name="last-name" required><br>
+
+          <label for="email">* Email Address:</label>
+          <input type="email" id="email" name="email" required><br>
+
+          <label for="username">* Username:</label>
+          <input type="text" id="username" name="username" required><br>
+
+          <label for="password">* Password:</label>
+          <input type="password" id="password" name="password" required><br>
+
+          <label for="confirm-password">* Confirm Password:</label>
+          <input type="password" id="confirm-password" name="confirm-password" required><br>
+
+        <br>
+          <p>What will you be using this web-based application for?</p>
+          <input type="checkbox" name="motivation" value="Professional"> Professional Use<br>
+          <input type="checkbox" name="motivation" value="Personal"> Personal Use<br> <br>
+
+          <button type="submit" onclick="validateForm()">Continue</button><br>
+      <p><i>Already Have an account?</i> <a href="CW2login.html" style="color: blue; text-decoration: underline;">Click here to login</a></p>
+      </div>
+
+        </form>
+      </div>
+
+      <div class="curved-window left">
+        <img src="SupportingImages/TaskManagerImage.png" alt="promo_img">
+
+      </div>
+
+
+  
+
+      <script>
+        var users = [];
+        function validateForm() {
+          var password = document.getElementById("password").value;
+          var confirmPassword = document.getElementById("confirm-password").value;
+          if (password != confirmPassword) {
+            alertify.alert("Passwords do not match!.");
+            return false;
+          }
+          alertify.alert("User Created Successfully.",  function(){window.location.href = 'CW2MainDashboard.html';});
+          return true;
+        }
+      </script>
+
+</body>
+</html>

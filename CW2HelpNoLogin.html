@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Help</title>
+    <link rel="stylesheet" type="text/css" href="ExternalFrameworks/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+
+body {
+  background-color: rgb(126, 207, 221);
+}
+
+h1 {
+  width: 90%;
+  text-align: center;
+}
+
+
+.top-container {
+  background-color: rgb(167, 112, 189);
+  height: 10vh;
+
+}
+
+hr {
+  border: none;
+  border-top: 3px solid black;
+}
+
+h2 {
+  background-color: rgb(146, 95, 167);
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background-color: gray;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.sidebar-button {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #29a5c4;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.sidebar-button:hover {
+  background-color: #1a0fa7;
+}
+
+.right-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.right-button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    float: left;
+    }
+
+.right-button-container button {
+    margin-left: 10px;
+}
+
+
+#chat-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 40%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: black;
+  margin-right: 200px;
+}
+
+#chatbox {
+  flex-grow: 1;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+#input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+#user-input {
+  flex-grow: 1;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#user-input:focus {
+  outline: none;
+}
+
+
+.user-message {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 10px;
+}
+
+.user-message .message-text {
+  background-color: #0d71c4;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 60%;
+  text-align: right;
+}
+
+
+.chatbot-message {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.chatbot-message .message-text {
+  background-color: #f2f2f2;
+  color: black;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 60%;
+}
+
+#button-container {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.button {
+  width: 95%;
+  height: 95px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background-color: #918e8e;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #faf6f6;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button:hover {
+  background-color: #ccc;
+}
+
+.button p {
+  margin: 0;
+  text-align: center;
+}
+
+.button a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+  #rectangle-container {
+  margin-left: 10px;
+  position: fixed;
+  float: right;
+  right: 110px;
+  width: 42%;
+  height: 600px;
+  margin-right: 100px;
+  background-color: rgb(115, 173, 226);;
+}
+
+.rectangle {
+    width: 98%;
+    height: auto;
+    margin: 5px;
+    padding: 10px;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #29a5c4;
+    color: white;
+  } 
+
+.scrollable-window {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+
+.curved-window {
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  float: left;
+  background-color:rgb(177, 145, 184) ;
+}
+
+.up {
+  width: 45%;
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 190px;
+  margin-bottom: 20px;
+}
+
+.down {
+  width: 45%;
+  bottom:0;
+  margin-left: 10px;
+  height: 350px;
+  overflow: auto;
+  clear: left;
+}
+.wind-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+textarea {
+  height: 200px;
+  width: calc(98%);
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px 0;
+}
+
+.button-row a {
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.button-row .button {
+  height: 70px;
+  margin-right: 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background-color: #918e8e;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #faf6f6;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px
+}
+
+
+
+</style>
+
+  </head>
+
+  <body>
+    <!-- The sidebar -->
+<div class="sidebar">
+  <a href="CW2HelpNoLogin.html" class="sidebar-button">Help</a>
+  <a href="index.html" class="sidebar-button">Homepage</a>
+</div>
+  
+  <div class="right-button-container">
+    <button class="HelpB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Help.html'" > Help </button>
+    <button class="SettingsB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Settings.html'">Settings</button>
+    <button class="NotifictionsB" style="background-color: #29a5c4; color: white" onclick="window.location.href='CW2Notifications.html'">Notifications</button>
+  </div>  
+  
+  
+  <div class="top-container">
+    <img src="SupportingImages/DEWITlogo.png" height="100%" alt="Logo"> 
+  </div>
+
+<br>
+<button style="background-color: maroon; color: white; font-size: 20px; margin-left:10px;" onclick="window.history.back()">Go Back</button> <p></p>
+  <h1><strong>Help and Support</strong></h1>
+  <hr>
+
+  <div class="curved-window up">
+    <div style="margin-left: 10px;">
+      <div class="button-row">
+        <a href="CW2Maintenance.html"><div class="button"><p>Getting Started</p></div></a>
+        <a href="CW2Maintenance.html"><div class="button"><p>About This App</p></div></a>
+        <a href="CW2Maintenance.html"><div class="button"><p>Updates & Training</p></div></a>
+      </div>
+      <div class="button-row">
+        <a href="CW2Maintenance.html"><div class="button"><p>News & Advice</p></div></a>
+        <a href="CW2Maintenance.html"><div class="button"><p>Account Specific Support</p></div></a>
+        <a href="CW2Maintenance.html"><div class="button"><p>Device Support</p></div></a>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <br>
+  <div class="curved-window down">
+    <div style="margin-left: 10px;">
+      <div class="scrollable-window">
+        <h2><strong>FAQ's </strong></h2>
+        <h3><strong>Why can't I see my tabs?</strong></h3>
+        <div class="rectangle">
+          <p>Consider Refreshing the webpage. Alternatively, you can swap to a different browser.</p>
+        </div>
+  
+        <h3><strong>How can I join a team?</strong></h3>
+        <div class="rectangle">
+          <p>Simply click on the 'team collaboration' button on the sidebar. To join an existing team, press the 'join team' button. To create a new team, click the 'add team' and fill in the required details.</p>
+        </div>
+  
+        <h3><strong>Do I need an account for this application?</strong></h3>
+        <div class="rectangle">
+          <p>It is strongly reccommended to create an account in order to use the full functionality of the task manager</p>
+        </div>
+  
+        <h3><strong>I need to speak to a person not a chatbot</strong></h3>
+        <div class="rectangle">
+          <p>We are available through telephone 0110 000 1111 or by email at fakeEmail@provider.comm</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="chat-container">
+    <br>
+    <h2 > <strong>Ask Korra, Your Virtual Assistant </strong></h2>
+    <div id="chatbox"></div>
+      <div id="input-container">
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button type="submit" style="background-color: #29a5c4; color: white;" cursor="pointer" background="none" padding ="0" margin-left="5px" onclick="sendUserInput()">Send</button>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+    const chatbox = document.getElementById("chatbox");
+    const userInput = document.getElementById("user-input");
+    
+    // Hardcoded questions and answers for Korra (chatbot)
+    const qaPairs = [
+      {
+        question: "Hello",
+        answer: "Hello there! How can I assist you today?"
+      },
+      {
+        question: "Bye",
+        answer: "Goodbye!"
+      },
+      {
+        question: "What are you?",
+        answer: "I am a helpbot with predetermined questions and answers hardcoded into my programming"
+      },
+      {
+        question: "What is this software?",
+        answer: "This is a web-based task manager designed to keep you scheduled and orgnised in an efficant way."
+      },
+      {
+        question: "How can I create a task?",
+        answer: "You can head over to the main dashboard and click on the 'Create Task' button. From there you can fill out the form and create a task."
+      },
+      {
+        question: "What is the best way to organise tasks?",
+        answer: "According to studies, the best way to organise tasks is to compile a list and organise them in order of importance. This way you can prioritise your tasks and complete them in a timely manner."
+      },
+    
+      {
+        question: "Can you give me some tips to actually complete tasks?",
+        answer: "Of course, we have several preprepared tips in newsletter format in our Top Tips for completing tasks on our dashboard" 
+      },
+    
+      {
+        question: "How can I create a task?",
+        answer: "You can head over to the main dashboard and click on the 'Create Task' button. From there you can fill out the form and create a task."
+      },
+    
+      {
+        question: "Marvel or DC",
+        answer: "Bestie its Hibah taking over the chatbot - Marvel Cinematic Solo's theres no competition."
+      }
+    ];
+    
+    function sendUserInput() {
+      const message = userInput.value;
+      if (message) {
+        displayMessage(message, "user");
+        userInput.value = "";
+        setTimeout(() => {
+          // call backend API to get chatbot response
+          const answer = getAnswer(message);
+          displayMessage(answer, "chatbot");
+        }, 500);
+      }
+    }
+    
+    function displayMessage(message, sender) {
+      const messageElement = document.createElement("div");
+      messageElement.classList.add("message");
+      messageElement.classList.add(sender + "-message");
+      const messageText = document.createElement("div");
+      messageText.classList.add("message-text");
+      messageText.textContent = message;
+      messageElement.appendChild(messageText);
+      chatbox.appendChild(messageElement);
+    }
+    
+    function getAnswer(question) {
+      for (let i = 0; i < qaPairs.length; i++) {
+        if (qaPairs[i].question.toLowerCase() === question.toLowerCase()) {
+          return qaPairs[i].answer;
+        }
+      }
+      // givea a default response for anyting that isn't in qaPairs array
+      let chatbotMessage = "I am not yet programmed to answer that question. But I am learning!. Is there anything else I can assist with today?";
+     
+      return chatbotMessage;
+    }
+    
+</script>
+  
+</body>
+</html>
